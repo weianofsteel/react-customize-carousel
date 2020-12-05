@@ -39,3 +39,5 @@ class CustomizeCarousel extends React.Component {
         )
     }
 }
+
+export default CustomizeCarousel;
