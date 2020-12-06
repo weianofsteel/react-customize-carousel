@@ -1,10 +1,14 @@
 {
   "name": "react-customize-carousel",
   "version": "1.0.0",
-  "description": "Simple Carousel Component",
+  "description": "A simple react carousel component",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/weianofsteel/react-scroll-up-button"
   },
   "keywords": [
     "react",
