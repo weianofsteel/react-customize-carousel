@@ -80,25 +80,25 @@ class CustomizeCarousel extends React.Component {
             if(!rotateBy) {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     list.push(
-                        <React.Fragment>
+                        <div key={i}>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
                                 <div style={{width:width?width:'600px', height:height?height:'500px'}}>
                                     <img src={imgsrc[i]} style={{margin: '0 auto', width:'100%', height:'100%'}}/>
                                 </div>
                             :''}        
-                        </React.Fragment>
+                        </div>
                     )
                 }
             }else {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     list.push(
-                        <React.Fragment>
+                        <div key={i}>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
                                 <div style={{width:width?width:'600px', height:height?height:'500px'}}>
                                     <img src={imgsrc[i]} style={{margin: '0 auto', width:'100%', height:'100%'}}/>
                                 </div>
                             :''}        
-                        </React.Fragment>
+                        </div>
                     )
                 }
             }
@@ -112,7 +112,7 @@ class CustomizeCarousel extends React.Component {
             if(!rotateBy) {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <React.Fragment>
+                        <div key={i}>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: 3 * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -122,13 +122,13 @@ class CustomizeCarousel extends React.Component {
                                     <RadioButtonUncheckedIcon/>
                                 </IconButton>
                             }
-                        </React.Fragment>
+                        </div>
                     )
                 }
             }else {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <React.Fragment>
+                        <div key={i}>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: rotateBy * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -138,7 +138,7 @@ class CustomizeCarousel extends React.Component {
                                     <RadioButtonUncheckedIcon/>
                                 </IconButton>
                             }
-                        </React.Fragment>
+                        </div>
                     )
                 }
             }
