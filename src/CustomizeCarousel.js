@@ -147,8 +147,6 @@ class CustomizeCarousel extends React.Component {
         return(
             <React.Fragment>
 
-                <div>{this.state.count}</div>
-
                 <Grid container justify="center" alignItems="center">
                 
                     {controlButton === true ?
