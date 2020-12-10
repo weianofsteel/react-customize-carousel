@@ -1,6 +1,6 @@
 {
   "name": "react-customize-carousel",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A simple react carousel component",
   "main": "./lib/CustomizeCarousel.js",
   "scripts": {
