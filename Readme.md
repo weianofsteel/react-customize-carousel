@@ -45,14 +45,12 @@ export default Demo;
 
 # Props
 
-|       Name      |         Type         |  Default  |                   Description                  |
-|-----------------|----------------------|-----------|------------------------------------------------|
-|  imgsrc         |  [img1, img2, img3]  |  [ ]      | It's an array, put the name of image you       |
-|                 |  (array)             |           | imported as element.                           |
-|  rotateBy       |  number              |  3        | How many seconds your carousel rotate.         |
-|  width          |  string              |  '600px'  | Defines width for image in carousel            |
-|  height         |  string              |  '500px'  | Defines height for image in carousel           |
-|  navigateButton |  booling             |  null     | Radio navigate shows up when navigateButton    |
-|                 |                      |           | set to true                                    |
-|  controlButton  |  booling             |  null     | Control button shows up when controlButton     |
-|                 |                      |           | set to true                                    |
+|       Name      |         Type         |  Default  |                       Description                       |
+|-----------------|----------------------|-----------|---------------------------------------------------------|
+|  imgsrc         |  [img1, img2, img3]  |  [ ]      | It's an array, put the name of image you imported as    |
+|                 |  (array)             |           | element.                                                |
+|  rotateBy       |  number              |  3        | How many seconds your carousel rotate.                  |
+|  width          |  string              |  '600px'  | Defines width for image in carousel                     |
+|  height         |  string              |  '500px'  | Defines height for image in carousel                    |
+|  navigateButton |  booling             |  null     | Radio navigate shows up when navigateButton set to true |
+|  controlButton  |  booling             |  null     | Control button shows up when controlButton set to true  |

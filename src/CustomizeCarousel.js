@@ -33,27 +33,37 @@ class CustomizeCarousel extends React.Component {
     }
 
     timer() {
-        this.setState({count: this.state.count + 1});
+        this.setState((prevState)=>({
+            count: prevState.count + 1
+        }));
     }
 
     handleNext() {
         if(!this.props.rotateBy) {
-            this.setState({count: this.state.count + 3})
+            this.setState((prevState)=>({
+                count: prevState.count + 3
+            }));
         }else {
-            this.setState({count: this.state.count + this.props.rotateBy})
+            this.setState((prevState, props)=>({
+                count: prevState.count + props.rotateBy
+            }));
         }
     }
 
     handleBack() {
         if(!this.props.rotateBy) {
             if(this.state.count > 3) {
-                this.setState({count: this.state.count - 3});
+                this.setState((prevState)=>({
+                    count: prevState.count - 3
+                }));
             }else {
                 this.setState({count: 0});
             }
         }else {
             if(this.state.count > 3) {
-                this.setState({count: this.state.count - this.props.rotateBy})
+                this.setState((prevState, props)=>({
+                    count: prevState.count - props.rotateBy
+                }));
             }else {
                 this.setState({count: 0});
             }
