@@ -116,11 +116,12 @@ class CustomizeCarousel extends React.Component {
 
         if(!imgsrc) {
             return RadioNavigation
-        }else {
+        }
+        else {
             if(!rotateBy) {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div>
+                        <div style={{display:'inline', textAlign:'center'}}>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: 3 * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -136,7 +137,7 @@ class CustomizeCarousel extends React.Component {
             }else {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div>
+                        <div style={{display:'inline', textAlign:'center'}}>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: rotateBy * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -172,11 +173,12 @@ class CustomizeCarousel extends React.Component {
                             </Button>
                         }
                     </Grid>
-                    <Grid item xs={10}>
-                        {navigateButton === true ?
+                    {navigateButton===true?
+                        <Grid item xs={10} style={{textAlign:'center'}}>
                             {RadioNavigation}
-                        :''}
-                    </Grid>
+                        </Grid>
+                        :<Grid item xs={10} style={{textAlign:'center'}}></Grid>
+                    }               
                     <Grid item xs={1}>
                         {controlButton === true &&
                             <Button style={{margin:'auto 0'}} onClick={this.handleNext}>
