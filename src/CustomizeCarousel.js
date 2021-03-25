@@ -76,6 +76,8 @@ class CustomizeCarousel extends React.Component {
         const {
             imgsrc,
             rotateBy,
+            width,
+            height,
             controlButton,
             navigateButton
         } = this.props;
@@ -121,7 +123,7 @@ class CustomizeCarousel extends React.Component {
             if(!rotateBy) {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div style={{display:'inline', textAlign:'center'}}>
+                        <div key={i} style={{display:'inline', textAlign:'center'}}>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: 3 * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -137,7 +139,7 @@ class CustomizeCarousel extends React.Component {
             }else {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div style={{display:'inline', textAlign:'center'}}>
+                        <div key={i} style={{display:'inline', textAlign:'center'}}>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: rotateBy * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -156,7 +158,7 @@ class CustomizeCarousel extends React.Component {
         return(
             <React.Fragment>
 
-                <Grid container justify="center" alignItems="center">
+                <Grid container>
                 
                     <Grid item xs={12}>
                         {list}
@@ -165,23 +167,23 @@ class CustomizeCarousel extends React.Component {
                 
                 </Grid>
 
-                <Grid container justify="center" alignItems="center">
-                    <Grid item xs={1}>
+                <Grid container>
+                    <Grid item xs={1} sm={1}>
                         {controlButton === true &&
-                            <Button style={{margin:'auto 0'}} onClick={this.handleBack}>
+                            <Button style={{margin:0}} onClick={this.handleBack}>
                                 <ArrowBackIosIcon/>
                             </Button>
                         }
                     </Grid>
                     {navigateButton===true?
-                        <Grid item xs={10} style={{textAlign:'center'}}>
+                        <Grid item xs={9} sm={10} style={{textAlign:'center'}}>
                             {RadioNavigation}
                         </Grid>
                         :<Grid item xs={10} style={{textAlign:'center'}}></Grid>
                     }               
-                    <Grid item xs={1}>
+                    <Grid item xs={1} sm={1}>
                         {controlButton === true &&
-                            <Button style={{margin:'auto 0'}} onClick={this.handleNext}>
+                            <Button style={{margin:0}} onClick={this.handleNext}>
                                 <ArrowForwardIosIcon/>
                             </Button>
                         }
