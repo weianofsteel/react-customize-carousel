@@ -76,8 +76,6 @@ class CustomizeCarousel extends React.Component {
         const {
             imgsrc,
             rotateBy,
-            width,
-            height,
             controlButton,
             navigateButton
         } = this.props;
@@ -92,7 +90,7 @@ class CustomizeCarousel extends React.Component {
                     list.push(
                         <div key={i}>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
-                                <div style={{width:width?width:'600px', height:height?height:'500px'}}>
+                                <div style={{width:'100%'}}>
                                     <img src={imgsrc[i]} style={{margin: '0 auto', width:'100%', height:'100%'}}/>
                                 </div>
                             :''}        
@@ -104,7 +102,7 @@ class CustomizeCarousel extends React.Component {
                     list.push(
                         <div key={i}>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
-                                <div style={{width:width?width:'600px', height:height?height:'500px'}}>
+                                <div style={{width:'100%'}}>
                                     <img src={imgsrc[i]} style={{margin: '0 auto', width:'100%', height:'100%'}}/>
                                 </div>
                             :''}        
@@ -122,7 +120,7 @@ class CustomizeCarousel extends React.Component {
             if(!rotateBy) {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div key={i}>
+                        <div>
                             {parseInt( this.state.count / 3) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: 3 * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -138,7 +136,7 @@ class CustomizeCarousel extends React.Component {
             }else {
                 for(let i = 0; i <= imgsrc.length - 1; i++) {
                     RadioNavigation.push(
-                        <div key={i}>
+                        <div>
                             {parseInt( this.state.count / rotateBy) % imgsrc.length === i ?
                                 <IconButton onClick={()=>{this.setState({count: rotateBy * i})}}>
                                     <PlayCircleFilledIcon/>
@@ -159,29 +157,35 @@ class CustomizeCarousel extends React.Component {
 
                 <Grid container justify="center" alignItems="center">
                 
-                    {controlButton === true ?
-                        <Button style={{margin:'auto 0'}} onClick={this.handleBack}>
-                            <ArrowBackIosIcon/>
-                        </Button>
-                    :''}
+                    <Grid item xs={12}>
+                        {list}
+                    </Grid>
 
-                    {list}
-
-                    {controlButton === true ?
-                        <Button style={{margin:'auto 0'}} onClick={this.handleNext}>
-                            <ArrowForwardIosIcon/>
-                        </Button>
-                    :''}
                 
                 </Grid>
 
-                {navigateButton === true ?
-                    <Grid container justify="center" alignItems="center">
-                    
-                        {RadioNavigation}
-                    
+                <Grid container justify="center" alignItems="center">
+                    <Grid item xs={1}>
+                        {controlButton === true &&
+                            <Button style={{margin:'auto 0'}} onClick={this.handleBack}>
+                                <ArrowBackIosIcon/>
+                            </Button>
+                        }
                     </Grid>
-                :''}
+                    <Grid item xs={10}>
+                        {navigateButton === true ?
+                            {RadioNavigation}
+                        :''}
+                    </Grid>
+                    <Grid item xs={1}>
+                        {controlButton === true &&
+                            <Button style={{margin:'auto 0'}} onClick={this.handleNext}>
+                                <ArrowForwardIosIcon/>
+                            </Button>
+                        }
+                    </Grid>
+                </Grid>
+                
 
             </React.Fragment>
         )
